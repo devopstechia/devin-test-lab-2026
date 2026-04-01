@@ -49,7 +49,9 @@ pytest: 11 passed
 
 ---
 
-## Preparacion y Ejecucion (Local)
+## Instrucciones de Ejecucion
+
+### Ejecucion Local
 
 1. **Crear el entorno virtual**:
     ```bash
@@ -71,6 +73,15 @@ pytest: 11 passed
     pytest tests/ -v
     ```
 
+### Ejecucion 100% Web (con Devin)
+
+Para probar a Devin sin instalar nada en tu computadora, sigue estos pasos:
+
+1.  **Haz un Fork de este repositorio**: Haz clic en el boton **"Fork"** en la esquina superior derecha para tener tu propia copia en tu cuenta de GitHub.
+2.  **Inicia tu sesion en Devin**: Accede a **[app.devin.ai](https://app.devin.ai)** e inicia una **Nueva Sesion**.
+3.  **Vincula tu copia**: Escribe a Devin: *"I want to work on my forked repository devin-test-lab-2026"*.
+4.  **Lanza la Mision**: Una vez vinculado, dile: *"Read the `devin-init.yaml` file and execute all tasks defined there"*.
+
 ---
 
 ## Suite de Tests
@@ -90,3 +101,17 @@ La suite cubre los siguientes escenarios:
 | test_get_task_by_id               | GET /tasks/{task_id}  | Obtener tarea existente por ID                  |
 | test_get_task_not_found           | GET /tasks/{task_id}  | Error 404 tarea no encontrada                   |
 | test_get_task_among_many          | GET /tasks/{task_id}  | Obtener tarea correcta entre varias             |
+
+---
+
+## La VM de Devin
+
+Al iniciar la sesion, veras como se abre una **Maquina Virtual (VM) dedicada** dentro del dashboard de Devin. No necesitas descargar nada porque Devin cuenta con su propio entorno de ejecucion en la nube que incluye:
+*   **Terminal de Linux**: Donde Devin instalara las dependencias y ejecutara los diagnosticos de seguridad.
+*   **Editor de Codigo (IDE)**: Donde veras a Devin crear la carpeta de tests y editar los archivos en tiempo real.
+*   **Navegador Web Interno**: Si Devin necesita consultar documentacion tecnica, veras como navega por internet dentro de la propia interfaz.
+
+---
+
+## Gestion de Seguridad y Permisos
+Devin utiliza la conexion segura de tu cuenta de GitHub (via OAuth) para clonar tu copia del repositorio y realizar los cambios (Commits y Pull Requests). No necesitas configurar archivos `.env` locales ni tokens manuales para esta prueba.
