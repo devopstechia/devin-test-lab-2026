@@ -22,14 +22,46 @@ Al ejecutar a Devin con el archivo `devin-init.yaml`, el agente debe trabajar de
 
 ---
 
-## 🚀 Instrucciones de Ejecución (Notebook Local)
+## 🚀 Preparación y Ejecución (Local)
 
-1.  Asegúrate de tener instalada la `devin-cli`.
-2.  Asegúrate de estar suscrito al plan Core o Team de Devin.
-3.  Desde la raíz de este directorio (`devin_test_project`), ejecuta:
+Para probar este código manualmente en tu notebook antes de entregárselo a Devin:
+
+1.  **Crear el entorno virtual**:
+    ```bash
+    python -m venv venv
+    ```
+2.  **Activar el entorno**:
+    *   En macOS/Linux: `source venv/bin/activate`
+    *   En Windows: `venv\Scripts\activate`
+3.  **Instalar dependencias**:
+    ```bash
+    pip install -r requirements.txt
+    ```
+4.  **Ejecutar la API**:
+    ```bash
+    python main.py
+    ```
+
+---
+
+## 🔑 Gestión de Credenciales y Secretos
+
+### ¿Cómo se autentica Devin?
+Devin NO necesita que le pases tus credenciales en un archivo `.env` para esta prueba básica. Devin utiliza tu sesión de la **`devin-cli`** o tu cuenta vinculada en **`app.devin.ai`** para obtener permisos de lectura/escritura en tus repositorios de GitHub.
+
+### ¿Cuándo usar un .env?
+Si tu proyecto real necesitara conectarse a una API externa (ej: una base de datos remota o una API de clima), deberías:
+1. Crear un archivo `.env.example` con las claves vacías.
+2. Pasar los secretos a Devin de forma segura a través de la interfaz de la plataforma o configurando las variables de entorno en su VM aislada.
+
+---
+
+## 🤖 Lanzar la Misión de Devin
+
+Una vez suscrito y con la CLI instalada, lanza el experimento desde la raíz de este directorio:
 
 ```bash
 devin run --file devin-init.yaml
 ```
 
-**¡Observa la consola!** Verás a Devin tomar el control, planificar las tareas y "desaparecer" a trabajar en su VM. Vuelve cuando el proyecto esté seguro y testeado. 🧠⚡
+**¡Observa la consola!** Verás a Devin tomar el control, planificar las tareas y "desaparecer" a trabajar en su VM propia (una infraestructura totalmente separada de tu notebook). Él mismo se encargará de instalar su propio entorno y dependencias. 🧠⚡
