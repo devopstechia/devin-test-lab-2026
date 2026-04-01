@@ -1,0 +1,12 @@
+# devin-init.yaml
+objective: "Auditoría de seguridad y aumento de cobertura de tests."
+tasks:
+  - "1. Analiza el proyecto: Escanea las dependencias buscando vulnerabilidades críticas en requirements.txt."
+  - "2. Remediación: Actualiza a las versiones seguras más estables sin romper la compatibilidad con FastAPI."
+  - "3. Automatización: Crea una carpeta 'tests/' y escribe una suite de pruebas con pytest para main.py (POST, GET y 404)."
+  - "4. QA: Ejecuta 'pytest' y confirma que la corrección de seguridad no ha roto la funcionalidad base."
+  - "5. Entrega: Resume los cambios realizados en un README.md nuevo y mantén el repositorio limpio."
+deliverables:
+  - "requirements.txt actualizado"
+  - "tests/test_main.py creado"
+  - "README.md con reporte de cambios"
