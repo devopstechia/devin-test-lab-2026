@@ -22,46 +22,25 @@ Al ejecutar a Devin con el archivo `devin-init.yaml`, el agente debe trabajar de
 
 ---
 
-## 🚀 Preparación y Ejecución (Local)
+## 🚀 Instrucciones de Ejecución (100% Web)
 
-Para probar este código manualmente en tu notebook antes de entregárselo a Devin:
+Para probar a Devin sin instalar nada en tu computadora, sigue estos pasos:
 
-1.  **Crear el entorno virtual**:
-    ```bash
-    python -m venv venv
-    ```
-2.  **Activar el entorno**:
-    *   En macOS/Linux: `source venv/bin/activate`
-    *   En Windows: `venv\Scripts\activate`
-3.  **Instalar dependencias**:
-    ```bash
-    pip install -r requirements.txt
-    ```
-4.  **Ejecutar la API**:
-    ```bash
-    python main.py
-    ```
+1.  **Haz un Fork de este repositorio**: Haz clic en el botón **"Fork"** en la esquina superior derecha para tener tu propia copia en tu cuenta de GitHub.
+2.  **Inicia tu sesión en Devin**: Accede a **[app.devin.ai](https://app.devin.ai)** e inicia una **Nueva Sesión**.
+3.  **Vincula tu copia**: Escribe a Devin: *"I want to work on my forked repository devin-test-lab-2026"*.
+4.  **Lanza la Misión**: Una vez vinculado, dile: *"Read the `devin-init.yaml` file and execute all tasks defined there"*.
 
 ---
 
-## 🔑 Gestión de Credenciales y Secretos
+## 🖥️ ¿Qué sucederá en tu navegador? (La VM de Devin)
 
-### ¿Cómo se autentica Devin?
-Devin NO necesita que le pases tus credenciales en un archivo `.env` para esta prueba básica. Devin utiliza tu sesión de la **`devin-cli`** o tu cuenta vinculada en **`app.devin.ai`** para obtener permisos de lectura/escritura en tus repositorios de GitHub.
-
-### ¿Cuándo usar un .env?
-Si tu proyecto real necesitara conectarse a una API externa (ej: una base de datos remota o una API de clima), deberías:
-1. Crear un archivo `.env.example` con las claves vacías.
-2. Pasar los secretos a Devin de forma segura a través de la interfaz de la plataforma o configurando las variables de entorno en su VM aislada.
+Al iniciar la sesión, verás cómo se abre una **Máquina Virtual (VM) dedicada** dentro del dashboard de Devin. No necesitas descargar nada porque Devin cuenta con su propio entorno de ejecución en la nube que incluye:
+*   **Terminal de Linux**: Donde Devin instalará las dependencias y ejecutará los diagnósticos de seguridad.
+*   **Editor de Código (IDE)**: Donde verás a Devin crear la carpeta de tests y editar los archivos en tiempo real.
+*   **Navegador Web Interno**: Si Devin necesita consultar documentación técnica, verás cómo navega por internet dentro de la propia interfaz.
 
 ---
 
-## 🤖 Lanzar la Misión de Devin
-
-Una vez suscrito y con la CLI instalada, lanza el experimento desde la raíz de este directorio:
-
-```bash
-devin run --file devin-init.yaml
-```
-
-**¡Observa la consola!** Verás a Devin tomar el control, planificar las tareas y "desaparecer" a trabajar en su VM propia (una infraestructura totalmente separada de tu notebook). Él mismo se encargará de instalar su propio entorno y dependencias. 🧠⚡
+## 🛡️ Gestión de Seguridad y Permisos
+Devin utiliza la conexión segura de tu cuenta de GitHub (vía OAuth) para clonar tu copia del repositorio y realizar los cambios (Commits y Pull Requests). No necesitas configurar archivos `.env` locales ni tokens manuales para esta prueba. Toda la infraestructura de ejecución vive y muere en la nube de Cognition AI. ⚡
